@@ -1,6 +1,6 @@
 # Tria — Contact List (Frontend Assignment)
 
-Small, production-minded React single-page app implementing a Contact List with search and add-contact flows.
+Deployed on Vercel: https://contactlisttria.vercel.app/
 
 What this app includes
 
