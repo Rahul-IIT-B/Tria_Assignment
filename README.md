@@ -1,50 +1,59 @@
 # Tria — Contact List (Frontend Assignment)
 
-This is a small React single-page app implementing a Contact List with search and the ability to add a new contact.
+Small, production-minded React single-page app implementing a Contact List with search and add-contact flows.
 
-Features
+What this app includes
 
 - View a list of contacts
-- Search contacts by name, email, or phone (case-insensitive). Phone searches match digits: you can type a substring of the number.
-- Add a new contact (name required)
+- Search contacts by name, email, or phone (case-insensitive). Phone searches match digits only — you can type any substring of the digits.
+- Add a new contact via an accessible modal popup (Name required; email and phone optional). The modal performs client-side validation (email format, phone digits-only) and traps focus while open.
+- Sticky search bar (search + New Contact) that remains visible while scrolling.
+- Responsive layout using percentage-based widths/heights (container uses a percentage of the viewport).
 
 Tech
 
 - React 18
 - Vite (dev server / build)
 
-Setup
+Quick setup (local)
 
 1. Ensure Node.js (>=16) and npm are installed.
-2. In the project root, install dependencies:
+2. From the project root:
 
 ```powershell
 npm install
 ```
 
-3. Run the dev server:
+3. Start the dev server (local only):
 
 ```powershell
 npm run dev
 ```
 
-Open the printed localhost URL in your browser.
-
-Build
+Build & preview (production build)
 
 ```powershell
 npm run build
 npm run preview
 ```
 
-Assumptions & notes
+By default Vite outputs to `dist/` which is suitable to deploy to static hosts.
 
-- Data is mocked locally in `src/app.jsx` (no backend). This was chosen to keep the app self-contained.
-- The Add Contact form only requires a name; email/phone are optional but kept for demonstration.
-- Accessibility: inputs have labels/aria labels and list items are keyboard-focusable.
+Accessibility & UX notes
 
-Next steps (optional)
+- The Add Contact modal traps focus, closes on Escape, and prevents background scrolling while open.
+- Inputs include appropriate types: email field is `type="email"`, phone field restricts to digits (client-side sanitization). Inline error messages are shown for invalid input.
+- The search input has clear ARIA labeling and the list items are keyboard-focusable.
 
-- Persist contacts to localStorage or a backend API
-- Add edit/delete contact actions
-- Add tests and TypeScript conversion
+Assumptions & implementation details
+
+- Data is in-memory in `src/app.jsx` (mocked). This keeps the project self-contained for the assignment. It's trivial to swap to localStorage or an API.
+- New contacts are assigned a simple timestamp-based id (Date.now()).
+
+Files of interest
+
+- `src/app.jsx` — application wiring, mock data, search/filtering
+- `src/components/SearchBar.jsx` — controlled search input with New button
+- `src/components/NewContactModal.jsx` — modal, validation, focus-trap
+- `src/components/ContactList.jsx` / `ContactItem.jsx` — list UI
+- `src/styles.css` — responsive percentage-based layout and modal styles
