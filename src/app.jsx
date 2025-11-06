@@ -4,19 +4,9 @@ import SearchBar from "./components/SearchBar";
 import NewContactModal from "./components/NewContactModal";
 
 const initialContacts = [
-  {
-    id: 1,
-    name: "Alice Johnson",
-    email: "alice@example.com",
-    phone: "8732936988",
-  },
+  { id: 1, name: "Alice Johnson", email: "alice@example.com", phone: "8732936988" },
   { id: 2, name: "Bob Smith", email: "bob@example.com", phone: "9742837978" },
-  {
-    id: 3,
-    name: "Charlie Lee",
-    email: "charlie@example.com",
-    phone: "9876548479",
-  },
+  { id: 3, name: "Charlie Lee", email: "charlie@example.com", phone: "9876548479" },
 ];
 
 export default function App() {
